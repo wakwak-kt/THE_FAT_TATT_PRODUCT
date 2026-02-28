@@ -1802,7 +1802,7 @@ ul {
 }
 
 .booking-card {
-  background: linear-gradient(to bottom right, var(--color-brand-yellow), var(--color-accent-green));
+  background: linear-gradient(to top right, #FEDA77, #F58529, #DD2A7B , #8134B8 , #515BD4);
   border-radius: 1.5rem;
   padding: 2.5rem;
   text-align: center;
@@ -1817,7 +1817,7 @@ ul {
   align-items: center;
   justify-content: center;
   background-color: #000;
-  color: var(--color-brand-yellow);
+  color: #E1306C;
   border-radius: 1rem;
   margin: 0 auto 1.5rem;
   font-size: 1.75rem;
@@ -1843,7 +1843,7 @@ ul {
   gap: 0.5rem;
   padding: 0.875rem 2rem;
   background-color: #000;
-  color: var(--color-brand-yellow);
+  color: #E1306C;
   font-size: 1rem;
   font-weight: 900;
   border-radius: 9999px;
