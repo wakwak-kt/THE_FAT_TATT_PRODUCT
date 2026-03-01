@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import BookingSection from "@/components/sections/BookingSection";
 
 export const metadata: Metadata = {
-  title: "ご予約 | THE FAT TATT",
+  title: "Booking & Contact | THE FAT TATT | ご予約・お問い合わせ",
   description:
-    "THE FAT TATTのご予約ページ。オーダー・持ち込み・アートドロップの施術予約はInstagramのDMから承っております。",
+    "Book your tattoo appointment at THE FAT TATT via Instagram DM. Custom orders, bring-your-own designs, and Art Drop available. | 施術予約はInstagramのDMから承っております。",
+  alternates: {
+    canonical: "https://thefattatt.com/booking",
+  },
 };
 
 export default function BookingPage() {

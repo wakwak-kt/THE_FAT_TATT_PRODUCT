@@ -4,9 +4,12 @@ import type { Announcement } from "@/lib/types";
 import NewsSection from "@/components/sections/NewsSection";
 
 export const metadata: Metadata = {
-  title: "お知らせ | THE FAT TATT",
+  title: "News & Updates | THE FAT TATT | お知らせ",
   description:
-    "THE FAT TATTの最新ニュースとお知らせ。営業情報やイベント情報をお届けします。",
+    "Latest news and updates from THE FAT TATT tattoo studio. Business hours, events, and announcements. | 営業情報やイベント情報をお届けします。",
+  alternates: {
+    canonical: "https://thefattatt.com/news",
+  },
 };
 
 export const revalidate = 60;

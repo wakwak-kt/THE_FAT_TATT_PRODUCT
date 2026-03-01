@@ -3,9 +3,12 @@ import Link from "next/link";
 import ScrollFadeUp from "@/components/ui/ScrollFadeUp";
 
 export const metadata: Metadata = {
-  title: "料金 | THE FAT TATT",
+  title: "Pricing | THE FAT TATT - Tattoo Rates | 料金",
   description:
-    "THE FAT TATTの料金表。ワンポイントから大型デザインまで、サイズ別の参考価格をご案内します。",
+    "THE FAT TATT tattoo pricing guide. From small one-point tattoos to large custom designs, view our size-based pricing. | ワンポイントから大型デザインまでサイズ別の参考価格をご案内します。",
+  alternates: {
+    canonical: "https://thefattatt.com/pricing",
+  },
 };
 
 const PRICE_LIST = [

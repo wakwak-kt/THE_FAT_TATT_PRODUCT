@@ -1,0 +1,10 @@
+{
+  "name": "THE FAT TATT - Tattoo Studio",
+  "short_name": "THE FAT TATT",
+  "description": "Tattoo studio in Onomichi, Hiroshima, Japan. Newschool style, by appointment only.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": []
+}

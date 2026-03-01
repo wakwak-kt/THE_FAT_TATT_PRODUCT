@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import ProcessSection from "@/components/sections/ProcessSection";
 
 export const metadata: Metadata = {
-  title: "施術の流れ | THE FAT TATT",
+  title: "Tattoo Process | THE FAT TATT - How It Works | 施術の流れ",
   description:
-    "THE FAT TATTの3つのデザインパターン（オーダー・持ち込み・アートドロップ）と施術の流れをご紹介。初めての方でも安心してご利用いただけます。",
+    "Learn about THE FAT TATT's tattoo process. Three design options: custom order, bring-your-own, or Art Drop. Perfect for first-timers. | デザインパターンと施術の流れをご紹介。初めての方でも安心。",
+  alternates: {
+    canonical: "https://thefattatt.com/process",
+  },
 };
 
 export default function ProcessPage() {

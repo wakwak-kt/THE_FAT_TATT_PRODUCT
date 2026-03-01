@@ -5,9 +5,12 @@ import type { Artwork } from "@/lib/types";
 import ArtDropSection from "@/components/sections/ArtDropSection";
 
 export const metadata: Metadata = {
-  title: "アートドロップ | THE FAT TATT",
+  title: "Art Drop - Flash Tattoo Designs | THE FAT TATT | アートドロップ",
   description:
-    "THE FAT TATTのアートドロップ作品一覧。アーティストが描き下ろしたデザインからお気に入りを見つけて、比較的リーズナブルに施術いただけます。",
+    "Browse THE FAT TATT's Art Drop collection. Pre-designed flash tattoos at fixed prices by our artists. | アーティストが描き下ろしたデザインからお気に入りを見つけて施術いただけます。",
+  alternates: {
+    canonical: "https://thefattatt.com/artdrop",
+  },
 };
 
 export const revalidate = 60;

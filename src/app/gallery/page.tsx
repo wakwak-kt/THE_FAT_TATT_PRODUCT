@@ -5,9 +5,12 @@ import type { Artwork } from "@/lib/types";
 import ArtDropSection from "@/components/sections/ArtDropSection";
 
 export const metadata: Metadata = {
-  title: "ギャラリー | THE FAT TATT",
+  title: "Gallery | THE FAT TATT - Tattoo Portfolio | ギャラリー",
   description:
-    "THE FAT TATTの作品ギャラリー。これまでの施術作品やデザインをご覧いただけます。",
+    "Browse THE FAT TATT's tattoo portfolio and gallery. View our past works and custom designs. | これまでの施術作品やデザインをご覧いただけます。",
+  alternates: {
+    canonical: "https://thefattatt.com/gallery",
+  },
 };
 
 export const revalidate = 60;
