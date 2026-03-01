@@ -121,7 +121,7 @@ export default function RootLayout({
                 ],
                 description: "By appointment only / 完全予約制",
               },
-              sameAs: [],
+              sameAs: ["https://www.instagram.com/the_fat_tatt"],
               knowsLanguage: ["ja", "en"],
               areaServed: {
                 "@type": "Place",
