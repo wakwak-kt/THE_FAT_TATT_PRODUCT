@@ -41,7 +41,6 @@ export async function getAnnouncements(): Promise<Announcement[]> {
   const res = await client.getList<Announcement>({
     endpoint: "announcement",
     queries: {
-      filters: "isPublished[equals]true",
       orders: "-publishDate",
     },
   });
