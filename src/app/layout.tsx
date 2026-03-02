@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Outfit, Noto_Sans_JP } from "next/font/google";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import MobileBookingCta from "@/components/ui/MobileBookingCta";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -135,6 +136,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <MobileBookingCta />
       </body>
     </html>
   );

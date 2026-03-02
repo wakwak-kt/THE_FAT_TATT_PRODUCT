@@ -2076,3 +2076,52 @@ ul {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ========================================
+   Mobile Booking CTA (モバイル予約ボタン)
+   ======================================== */
+.mobile-booking-cta {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .mobile-booking-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: fixed;
+    bottom: 1.25rem;
+    left: 50%;
+    z-index: 900;
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, var(--color-brand-yellow), var(--color-brand-yellow-dark));
+    color: var(--color-dark-900);
+    font-family: var(--font-noto-sans-jp);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.2s ease;
+  }
+
+  .mobile-booking-cta--visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .mobile-booking-cta i {
+    font-size: 1.25rem;
+  }
+
+  .mobile-booking-cta--visible:active {
+    transform: translateX(-50%) scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+}
