@@ -52,8 +52,8 @@ export default function Header() {
           <Image
             src="/images/the-fat-tatt.logo.png"
             alt="THE FAT TATT"
-            width={120}
-            height={48}
+            width={202}
+            height={80}
           />
         </Link>
 
