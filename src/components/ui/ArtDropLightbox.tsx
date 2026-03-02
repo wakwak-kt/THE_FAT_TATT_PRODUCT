@@ -3,15 +3,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import type { Artwork } from "@/lib/types";
+import type { ArtDrop } from "@/lib/types";
 
-interface ImageLightboxProps {
-  artworks: Artwork[];
-  showPrice?: boolean;
-  showSoldOut?: boolean;
+interface ArtDropLightboxProps {
+  artworks: ArtDrop[];
 }
 
-export default function ImageLightbox({ artworks, showPrice = true, showSoldOut = true }: ImageLightboxProps) {
+export default function ArtDropLightbox({ artworks }: ArtDropLightboxProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const close = useCallback(() => setSelectedIndex(null), []);
@@ -72,7 +70,7 @@ export default function ImageLightbox({ artworks, showPrice = true, showSoldOut 
                   ))}
                 </div>
               )}
-              {showSoldOut && artwork.isSoldOut && (
+              {artwork.isSoldOut && (
                 <div className="artdrop-soldout-overlay">
                   <span className="artdrop-soldout-text">SOLD OUT</span>
                 </div>
@@ -86,7 +84,7 @@ export default function ImageLightbox({ artworks, showPrice = true, showSoldOut 
               {artwork.description && (
                 <p className="artdrop-description">{artwork.description}</p>
               )}
-              {showPrice && artwork.price && (
+              {artwork.price && (
                 <p className="artdrop-price">
                   &yen;{artwork.price.toLocaleString()}
                 </p>
@@ -102,7 +100,7 @@ export default function ImageLightbox({ artworks, showPrice = true, showSoldOut 
             <div className="lightbox-header">
               <div className="lightbox-header-info">
                 <h3 className="lightbox-title">{selected.title}</h3>
-                {showPrice && selected.price && (
+                {selected.price && (
                   <p className="lightbox-price">
                     &yen;{selected.price.toLocaleString()}
                   </p>

@@ -1,23 +1,23 @@
 import ScrollFadeUp from "@/components/ui/ScrollFadeUp";
-import ArtDropLightbox from "@/components/ui/ArtDropLightbox";
-import type { ArtDrop } from "@/lib/types";
+import GalleryLightbox from "@/components/ui/GalleryLightbox";
+import type { Gallery } from "@/lib/types";
 
-export default function ArtDropSection({
+export default function GallerySection({
   artworks,
 }: {
-  artworks: ArtDrop[];
+  artworks: Gallery[];
 }) {
   return (
-    <section id="artdrop" className="artdrop-section">
+    <section id="gallery" className="artdrop-section">
       <div className="container">
 
         <ScrollFadeUp>
           {artworks.length > 0 ? (
-            <ArtDropLightbox artworks={artworks} />
+            <GalleryLightbox artworks={artworks} />
           ) : (
             <div className="artdrop-empty">
               <i className="ri-gallery-line"></i>
-              <p>現在公開中のアートドロップはありません</p>
+              <p>現在公開中の作品はありません</p>
             </div>
           )}
         </ScrollFadeUp>

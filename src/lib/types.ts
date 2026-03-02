@@ -1,6 +1,14 @@
 import type { MicroCMSImage, MicroCMSListContent } from "microcms-js-sdk";
 
-export interface Artwork extends MicroCMSListContent {
+export interface Gallery extends MicroCMSListContent {
+  title: string;
+  description?: string;
+  image: MicroCMSImage;
+  category?: string[];
+  price?: number;
+}
+
+export interface ArtDrop extends MicroCMSListContent {
   title: string;
   description?: string;
   image: MicroCMSImage;

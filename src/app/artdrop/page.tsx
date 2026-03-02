@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getArtDropArtworks } from "@/lib/microcms";
-import type { Artwork } from "@/lib/types";
+import type { ArtDrop } from "@/lib/types";
 import ArtDropSection from "@/components/sections/ArtDropSection";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function ArtDropPage() {
-  let artworks: Artwork[] = [];
+  let artworks: ArtDrop[] = [];
 
   try {
     artworks = await getArtDropArtworks();
