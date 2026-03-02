@@ -12,11 +12,11 @@ export default function Footer() {
         <div className="footer-content">
           <div className="footer-brand">
             <p className="footer-tagline">
-              あなただけのアートを一生の宝物に。
+              おめでとうございます。
               <br />
-              お客様一人ひとりの想いを大切に、
+              ここまできたあなたは少なからず密かな衝動を隠し持ってます。
               <br />
-              世界に一つだけのタトゥーを創り上げます。
+              あとはユニフォームをいれるだけ。
             </p>
             <div className="footer-social">
               <a
