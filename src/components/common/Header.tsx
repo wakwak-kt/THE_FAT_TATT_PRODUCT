@@ -50,7 +50,7 @@ export default function Header() {
       <div className="header-container">
         <Link href="/" className="header-logo">
           <Image
-            src="/images/the-fat-tatt-logo.png"
+            src="/images/the-fat-tatt.logo.png"
             alt="THE FAT TATT"
             width={120}
             height={48}
