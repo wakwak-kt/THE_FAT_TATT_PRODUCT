@@ -9,9 +9,11 @@ export default function AboutSection() {
           <div className="section-header">
             <h2 className="section-title">THE FAT TATTについて</h2>
             <p className="section-subtitle">
-              一生残るアートだからこそ、妥協しない。
+              広島県尾道市にあるタトゥースタジオ。
               <br />
-              お客様の想いを形にするため、デザインから施術まで一貫してこだわり抜きます。
+              タトゥーの施術だけで無く、コミュニケーションや雰囲気、唯一無二の空間を提供します。
+              <br />
+              お客様の想いを形にするため、デザインから施術まで一貫してこだわります。
             </p>
           </div>
         </ScrollFadeUp>
@@ -30,37 +32,22 @@ export default function AboutSection() {
             </div>
 
             <div className="about-text">
-              <div>
-                <div className="concept-badge">コンセプト</div>
-                <h3 className="about-heading">世界に一つだけのアートを</h3>
+              <div className="concept-badge">コンセプト</div>
+
+              <div className="concept-block">
+                <h3 className="about-heading">他人不在</h3>
                 <p className="about-description">
-                  THE FAT
-                  TATTは、広島県尾道市を拠点とするニュースクールタトゥースタジオです。THE
-                  FAT
-                  TATTでは、タトゥーを単なる装飾ではなく、お客様の人生の一部となる芸術作品として捉えています。
+                  誰に何を言われても気にしない。いや、言わせない。そんな人に、沈黙のユニフォームを。
                 </p>
               </div>
 
-              <div className="about-features">
-                <div className="feature-card">
-                  <div className="feature-icon">
-                    <i className="ri-shield-check-line"></i>
-                  </div>
-                  <h4 className="feature-title">安全性</h4>
-                  <p className="feature-text">
-                    使い捨て器具の使用と徹底した衛生管理
-                  </p>
-                </div>
+              <div className="concept-divider" />
 
-                <div className="feature-card">
-                  <div className="feature-icon">
-                    <i className="ri-palette-line"></i>
-                  </div>
-                  <h4 className="feature-title">芸術性</h4>
-                  <p className="feature-text">
-                    高い技術力と豊富な経験による美しい仕上がり
-                  </p>
-                </div>
+              <div className="concept-block">
+                <h3 className="about-heading">多様なバックボーンから織りなす<br />複雑な衝動の可視化</h3>
+                <p className="about-description">
+                  おめでとうございます。ここまできたあなたは少なからず密かな衝動を隠し持ってます。あとはユニフォームをいれるだけ。
+                </p>
               </div>
             </div>
           </div>

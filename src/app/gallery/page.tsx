@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getGalleryArtworks } from "@/lib/microcms";
-import type { Artwork } from "@/lib/types";
-import ArtDropSection from "@/components/sections/ArtDropSection";
+import type { Gallery } from "@/lib/types";
+import GallerySection from "@/components/sections/GallerySection";
 
 export const metadata: Metadata = {
   title: "Gallery | THE FAT TATT - Tattoo Portfolio | ギャラリー",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function GalleryPage() {
-  let artworks: Artwork[] = [];
+  let artworks: Gallery[] = [];
 
   try {
     artworks = await getGalleryArtworks();
@@ -32,7 +32,7 @@ export default async function GalleryPage() {
           <p className="page-hero-subtitle">これまでの作品をご覧ください</p>
         </div>
       </div>
-      <ArtDropSection artworks={artworks} showPrice={false} showSoldOut={false} />
+      <GallerySection artworks={artworks} />
     </main>
   );
 }
