@@ -39,37 +39,25 @@ export default function AccessSection() {
                   </div>
                 </div>
 
-                <div className="access-item">
+                <a className="access-item" href="https://instagram.com/the_fat_tatt" target="_blank" rel="nofollow noopener noreferrer">
                   <div className="access-icon">
-                    <a
-                      href="https://instagram.com/the_fat_tatt"
-                      target="_blank"
-                      rel="nofollow noopener noreferrer"
-                    >
-                      <i className="ri-instagram-line"></i>
-                    </a>
+                    <i className="ri-instagram-line"></i>
                   </div>
                   <div className="access-detail">
                     <h4>Instagram</h4>
-                    <a
-                      href="https://instagram.com/the_fat_tatt"
-                      target="_blank"
-                      rel="nofollow noopener noreferrer"
-                    >
-                      @the_fat_tatt
-                    </a>
+                    <span>@the_fat_tatt</span>
                   </div>
-                </div>
+                </a>
 
-                <div className="access-item">
+                <a className="access-item" href="https://note.com/k_sage299" target="_blank" rel="noopener noreferrer">
                   <div className="access-icon">
                     <i className="ri-file-text-line"></i>
                   </div>
                   <div className="access-detail">
                     <h4>note</h4>
-                    <a href="#">noteで最新情報をチェック</a>
+                    <span>noteで最新情報をチェック</span>
                   </div>
-                </div>
+                </a>
               </div>
 
               <div className="access-notice">

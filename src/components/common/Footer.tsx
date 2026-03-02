@@ -27,7 +27,7 @@ export default function Footer() {
               >
                 <i className="ri-instagram-line"></i>
               </a>
-              <a href="#" className="social-link">
+              <a href="https://note.com/k_sage299" className="social-link">
                 <i className="ri-file-text-line"></i>
               </a>
             </div>
