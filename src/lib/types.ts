@@ -18,6 +18,7 @@ export interface ArtDrop extends MicroCMSListContent {
 }
 
 export interface Announcement extends MicroCMSListContent {
+  image?: MicroCMSImage;
   title: string;
   content: string;
   publishDate: string;

@@ -35,3 +35,12 @@ export async function getAnnouncements(): Promise<Announcement[]> {
   });
   return res.contents;
 }
+
+export async function getAnnouncementById(
+  id: string
+): Promise<Announcement> {
+  return await client.getListDetail<Announcement>({
+    endpoint: "announcement",
+    contentId: id,
+  });
+}

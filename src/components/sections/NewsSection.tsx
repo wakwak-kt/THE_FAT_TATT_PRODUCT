@@ -1,18 +1,15 @@
+import Image from "next/image";
+import Link from "next/link";
 import ScrollFadeUp from "@/components/ui/ScrollFadeUp";
 import type { Announcement } from "@/lib/types";
 
 function formatDate(dateStr: string) {
   const parts = dateStr.split("-");
-  if (parts.length < 3) return { month: "", day: "" };
-  const months = [
-    "1月", "2月", "3月", "4月", "5月", "6月",
-    "7月", "8月", "9月", "10月", "11月", "12月",
-  ];
-  const monthIndex = parseInt(parts[1], 10) - 1;
-  return {
-    month: months[monthIndex],
-    day: `${parseInt(parts[2], 10)}日`,
-  };
+  if (parts.length < 3) return "";
+  const year = parts[0];
+  const month = parseInt(parts[1], 10);
+  const day = parseInt(parts[2], 10);
+  return `${year}.${month}.${day}`;
 }
 
 export default function NewsSection({
@@ -27,21 +24,27 @@ export default function NewsSection({
         <ScrollFadeUp>
           {announcements.length > 0 ? (
             <div className="news-list">
-              {announcements.map((item) => {
-                const date = formatDate(item.publishDate);
-                return (
-                  <div key={item.id} className="news-card">
-                    <div className="news-date-badge">
-                      <span className="news-date-month">{date.month}</span>
-                      <span className="news-date-day">{date.day}</span>
-                    </div>
-                    <div className="news-body">
-                      <h3 className="news-title">{item.title}</h3>
-                      <p className="news-content">{item.content}</p>
-                    </div>
+              {announcements.map((item) => (
+                <Link
+                  key={item.id}
+                  href={`/news/${item.id}`}
+                  className="news-card"
+                >
+                  <div className="news-card-image">
+                    <Image
+                      src={item.image?.url ?? "/images/no-image.png"}
+                      alt={item.title}
+                      width={item.image?.width ?? 80}
+                      height={item.image?.height ?? 80}
+                      sizes="80px"
+                    />
                   </div>
-                );
-              })}
+                  <div className="news-body">
+                    <p className="news-card-date">{formatDate(item.publishDate)}</p>
+                    <h3 className="news-title">{item.title}</h3>
+                  </div>
+                </Link>
+              ))}
             </div>
           ) : (
             <div className="news-empty">
