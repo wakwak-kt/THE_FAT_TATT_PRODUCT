@@ -1513,6 +1513,43 @@ ul {
 }
 
 /* ===================================
+   Recent News Section (Home)
+   =================================== */
+.recent-news-section {
+  padding: var(--section-padding) 0;
+  background-color: var(--color-hero-bg);
+}
+
+.recent-news-cta {
+  text-align: center;
+  padding: 2rem 0 0;
+}
+
+.recent-news-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  background-color: var(--color-dark-900);
+  color: var(--color-brand-yellow);
+  font-size: 1rem;
+  font-weight: 900;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.recent-news-cta-btn:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.recent-news-cta-btn i {
+  font-size: 1.25rem;
+}
+
+/* ===================================
    News Section
    =================================== */
 .news-section {
