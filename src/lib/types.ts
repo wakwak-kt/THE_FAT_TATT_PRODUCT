@@ -6,6 +6,9 @@ export interface Gallery extends MicroCMSListContent {
   image: MicroCMSImage;
   category?: string[];
   price?: number;
+  // English fields (optional)
+  title_en?: string;
+  category_en?: string[];
 }
 
 export interface ArtDrop extends MicroCMSListContent {
@@ -14,7 +17,11 @@ export interface ArtDrop extends MicroCMSListContent {
   image: MicroCMSImage;
   category?: string[];
   price?: number;
+  price_usd?: number;
   isSoldOut: boolean;
+  // English fields (optional)
+  title_en?: string;
+  category_en?: string[];
 }
 
 export interface Announcement extends MicroCMSListContent {
@@ -22,4 +29,7 @@ export interface Announcement extends MicroCMSListContent {
   title: string;
   content: string;
   publishDate: string;
+  // English fields (optional)
+  title_en?: string;
+  content_en?: string;
 }

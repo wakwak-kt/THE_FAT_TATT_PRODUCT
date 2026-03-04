@@ -2,10 +2,12 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/i18n";
 
 export default function MobileBookingCta() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (pathname !== "/") return;
@@ -57,7 +59,7 @@ export default function MobileBookingCta() {
       className={`mobile-booking-cta ${visible ? "mobile-booking-cta--visible" : ""}`}
     >
       <i className="ri-instagram-line"></i>
-      <span>DMで予約する</span>
+      <span>{t.booking.mobileCta}</span>
     </a>
   );
 }

@@ -1,18 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import ScrollFadeUp from "@/components/ui/ScrollFadeUp";
+import { useLanguage } from "@/i18n";
 
 export default function AboutSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="about-section">
       <div className="container">
         <ScrollFadeUp>
           <div className="section-header">
-            <h2 className="section-title">THE FAT TATTについて</h2>
-            <p className="section-subtitle">
-              広島県尾道市にあるタトゥースタジオです。
-              タトゥーの施術だけで無く、コミュニケーションや雰囲気、唯一無二の空間を提供します。
-              お客様の想いを形にするため、デザインから施術まで一貫してこだわります。
-            </p>
+            <h2 className="section-title">{t.about.title}</h2>
+            <p className="section-subtitle">{t.about.subtitle}</p>
           </div>
         </ScrollFadeUp>
 
@@ -21,7 +22,7 @@ export default function AboutSection() {
             <div className="about-image-wrapper">
               <Image
                 src="/images/nakamura_design.jpg"
-                alt="スタジオ内観"
+                alt={t.about.studioImageAlt}
                 width={600}
                 height={500}
                 className="about-image"
@@ -30,16 +31,11 @@ export default function AboutSection() {
             </div>
 
             <div className="about-text">
-              <div className="concept-badge">コンセプト</div>
+              <div className="concept-badge">{t.about.conceptBadge}</div>
 
               <div className="concept-block">
-                <h3 className="about-heading">他人不在</h3>
-                <p className="about-description">
-                  誰に何を言われても気にしない。いや、言わせない。そんな人に、沈黙のユニフォームを。
-                  <br />
-                  多様なバックボーンから織りなす複雑な衝動の可視化。<br />
-                  おめでとうございます。ここまできたあなたは少なからず密かな衝動を隠し持ってます。あとはユニフォームをいれるだけ。
-                </p>
+                <h3 className="about-heading">{t.about.heading}</h3>
+                <p className="about-description">{t.about.description}</p>
               </div>
             </div>
           </div>

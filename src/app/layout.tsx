@@ -3,6 +3,8 @@ import { Poppins, Outfit, Noto_Sans_JP } from "next/font/google";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import MobileBookingCta from "@/components/ui/MobileBookingCta";
+import { LanguageProvider } from "@/i18n";
+import { LangSync } from "@/components/ui/LangSync";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -133,10 +135,13 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Header />
-        {children}
-        <Footer />
-        <MobileBookingCta />
+        <LanguageProvider>
+          <LangSync />
+          <Header />
+          {children}
+          <Footer />
+          <MobileBookingCta />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { useLanguage } from "@/i18n";
 import type { ArtDrop } from "@/lib/types";
 
 interface ArtDropLightboxProps {
@@ -11,6 +12,7 @@ interface ArtDropLightboxProps {
 
 export default function ArtDropLightbox({ artworks }: ArtDropLightboxProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const { locale } = useLanguage();
 
   const close = useCallback(() => setSelectedIndex(null), []);
 
@@ -46,6 +48,26 @@ export default function ArtDropLightbox({ artworks }: ArtDropLightboxProps) {
 
   const selected = selectedIndex !== null ? artworks[selectedIndex] : null;
 
+  // 言語に応じて価格を表示
+  const getPriceDisplay = (artwork: ArtDrop) => {
+    if (locale === "en" && artwork.price_usd) {
+      return `$${artwork.price_usd.toLocaleString()}`;
+    }
+    if (artwork.price) {
+      return `¥${artwork.price.toLocaleString()}`;
+    }
+    return null;
+  };
+
+  // 言語に応じてタイトル/カテゴリを表示
+  const getTitle = (artwork: ArtDrop) => {
+    return locale === "en" && artwork.title_en ? artwork.title_en : artwork.title;
+  };
+
+  const getCategories = (artwork: ArtDrop) => {
+    return locale === "en" && artwork.category_en ? artwork.category_en : artwork.category;
+  };
+
   return (
     <>
       <div className="artdrop-grid">
@@ -58,14 +80,14 @@ export default function ArtDropLightbox({ artworks }: ArtDropLightboxProps) {
             <div className="artdrop-image-wrapper">
               <Image
                 src={artwork.image.url}
-                alt={artwork.title}
+                alt={getTitle(artwork)}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="artdrop-image"
               />
-              {artwork.category && artwork.category.length > 0 && (
+              {getCategories(artwork) && getCategories(artwork)!.length > 0 && (
                 <div className="artdrop-categories">
-                  {artwork.category.map((cat) => (
+                  {getCategories(artwork)!.map((cat) => (
                     <span key={cat} className="artdrop-category">{cat}</span>
                   ))}
                 </div>
@@ -80,13 +102,13 @@ export default function ArtDropLightbox({ artworks }: ArtDropLightboxProps) {
               </div>
             </div>
             <div className="artdrop-info">
-              <h3 className="artdrop-title">{artwork.title}</h3>
+              <h3 className="artdrop-title">{getTitle(artwork)}</h3>
               {artwork.description && (
                 <p className="artdrop-description">{artwork.description}</p>
               )}
-              {artwork.price && (
+              {getPriceDisplay(artwork) && (
                 <p className="artdrop-price">
-                  &yen;{artwork.price.toLocaleString()}
+                  {getPriceDisplay(artwork)}
                 </p>
               )}
             </div>
@@ -99,10 +121,10 @@ export default function ArtDropLightbox({ artworks }: ArtDropLightboxProps) {
           <div className="lightbox">
             <div className="lightbox-header">
               <div className="lightbox-header-info">
-                <h3 className="lightbox-title">{selected.title}</h3>
-                {selected.price && (
+                <h3 className="lightbox-title">{getTitle(selected)}</h3>
+                {getPriceDisplay(selected) && (
                   <p className="lightbox-price">
-                    &yen;{selected.price.toLocaleString()}
+                    {getPriceDisplay(selected)}
                   </p>
                 )}
               </div>
@@ -116,7 +138,7 @@ export default function ArtDropLightbox({ artworks }: ArtDropLightboxProps) {
               <div className="lightbox-image-wrapper">
                 <Image
                   src={selected.image.url}
-                  alt={selected.title}
+                  alt={getTitle(selected)}
                   fill
                   sizes="100vw"
                   className="lightbox-image"

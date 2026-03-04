@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { useLanguage } from "@/i18n";
 import type { Gallery } from "@/lib/types";
 
 interface GalleryLightboxProps {
@@ -11,6 +12,7 @@ interface GalleryLightboxProps {
 
 export default function GalleryLightbox({ artworks }: GalleryLightboxProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const { locale } = useLanguage();
 
   const close = useCallback(() => setSelectedIndex(null), []);
 
@@ -46,6 +48,15 @@ export default function GalleryLightbox({ artworks }: GalleryLightboxProps) {
 
   const selected = selectedIndex !== null ? artworks[selectedIndex] : null;
 
+  // 言語に応じてタイトル/カテゴリを表示
+  const getTitle = (artwork: Gallery) => {
+    return locale === "en" && artwork.title_en ? artwork.title_en : artwork.title;
+  };
+
+  const getCategories = (artwork: Gallery) => {
+    return locale === "en" && artwork.category_en ? artwork.category_en : artwork.category;
+  };
+
   return (
     <>
       <div className="artdrop-grid">
@@ -58,14 +69,14 @@ export default function GalleryLightbox({ artworks }: GalleryLightboxProps) {
             <div className="artdrop-image-wrapper">
               <Image
                 src={artwork.image.url}
-                alt={artwork.title}
+                alt={getTitle(artwork)}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="artdrop-image"
               />
-              {artwork.category && artwork.category.length > 0 && (
+              {getCategories(artwork) && getCategories(artwork)!.length > 0 && (
                 <div className="artdrop-categories">
-                  {artwork.category.map((cat) => (
+                  {getCategories(artwork)!.map((cat) => (
                     <span key={cat} className="artdrop-category">{cat}</span>
                   ))}
                 </div>
@@ -75,7 +86,7 @@ export default function GalleryLightbox({ artworks }: GalleryLightboxProps) {
               </div>
             </div>
             <div className="artdrop-info">
-              <h3 className="artdrop-title">{artwork.title}</h3>
+              <h3 className="artdrop-title">{getTitle(artwork)}</h3>
               {artwork.description && (
                 <p className="artdrop-description">{artwork.description}</p>
               )}
@@ -89,7 +100,7 @@ export default function GalleryLightbox({ artworks }: GalleryLightboxProps) {
           <div className="lightbox">
             <div className="lightbox-header">
               <div className="lightbox-header-info">
-                <h3 className="lightbox-title">{selected.title}</h3>
+                <h3 className="lightbox-title">{getTitle(selected)}</h3>
               </div>
               <button className="lightbox-close" onClick={close} aria-label="閉じる">
                 <i className="ri-close-line"></i>
@@ -101,7 +112,7 @@ export default function GalleryLightbox({ artworks }: GalleryLightboxProps) {
               <div className="lightbox-image-wrapper">
                 <Image
                   src={selected.image.url}
-                  alt={selected.title}
+                  alt={getTitle(selected)}
                   fill
                   sizes="100vw"
                   className="lightbox-image"

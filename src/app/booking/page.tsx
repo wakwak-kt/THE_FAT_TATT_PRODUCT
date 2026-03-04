@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BookingSection from "@/components/sections/BookingSection";
+import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Booking & Contact | THE FAT TATT | ご予約・お問い合わせ",
@@ -13,14 +14,7 @@ export const metadata: Metadata = {
 export default function BookingPage() {
   return (
     <main className="page-content">
-      <div className="page-hero">
-        <div className="container">
-          <h1 className="page-hero-title">ご予約</h1>
-          <p className="page-hero-subtitle">
-            Instagram DMからご予約ください
-          </p>
-        </div>
-      </div>
+      <PageHero pageKey="booking" />
       <BookingSection />
     </main>
   );

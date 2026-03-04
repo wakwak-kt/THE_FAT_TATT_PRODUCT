@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getArtDropArtworks } from "@/lib/microcms";
 import type { ArtDrop } from "@/lib/types";
 import ArtDropSection from "@/components/sections/ArtDropSection";
+import { PageHero } from "@/components/ui/PageHero";
+import { ArtDropPageCTA } from "@/components/ui/ArtDropPageCTA";
 
 export const metadata: Metadata = {
   title: "Art Drop - Flash Tattoo Designs | THE FAT TATT | アートドロップ",
@@ -26,26 +27,9 @@ export default async function ArtDropPage() {
 
   return (
     <main className="page-content">
-      <div className="page-hero">
-        <div className="container">
-          <h1 className="page-hero-title">アートドロップ</h1>
-          <p className="page-hero-subtitle">
-            アーティストが描き下ろしたデザインからお選びいただけます
-          </p>
-        </div>
-      </div>
+      <PageHero pageKey="artdrop" />
       <ArtDropSection artworks={artworks} />
-      <div className="container">
-        <div className="gallery-cta">
-          <p className="gallery-cta-text">
-            気になるデザインがあればお気軽にご予約ください
-          </p>
-          <Link href="/booking" className="gallery-cta-btn">
-            <i className="ri-calendar-check-line"></i>
-            ご予約・お問い合わせ
-          </Link>
-        </div>
-      </div>
+      <ArtDropPageCTA />
     </main>
   );
 }

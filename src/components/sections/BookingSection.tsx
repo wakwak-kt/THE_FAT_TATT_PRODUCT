@@ -1,12 +1,14 @@
 "use client";
 
 import ScrollFadeUp from "@/components/ui/ScrollFadeUp";
+import { useLanguage } from "@/i18n";
 
 export default function BookingSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="booking" className="booking-section">
       <div className="container">
-
         <ScrollFadeUp>
           <div className="booking-content booking-content--dm-only">
             <div className="booking-side">
@@ -14,11 +16,9 @@ export default function BookingSection() {
                 <div className="booking-icon">
                   <i className="ri-instagram-line"></i>
                 </div>
-                <h3 className="booking-card-title">InstagramのDMで予約</h3>
+                <h3 className="booking-card-title">{t.booking.cardTitle}</h3>
                 <p className="booking-card-description">
-                  InstagramのDMでご予約を承っております。
-                  <br />
-                  問い合わせや相談もお気軽にどうぞ。
+                  {t.booking.cardDescription}
                 </p>
                 <a
                   href="https://instagram.com/the_fat_tatt"
@@ -27,11 +27,9 @@ export default function BookingSection() {
                   className="booking-button"
                 >
                   <i className="ri-instagram-line"></i>
-                  <span>InstagramでDMを送る</span>
+                  <span>{t.booking.button}</span>
                 </a>
-                <p className="booking-note">
-                  @the_fat_tatt をフォローして最新作品もチェック！
-                </p>
+                <p className="booking-note">{t.booking.note}</p>
               </div>
             </div>
           </div>

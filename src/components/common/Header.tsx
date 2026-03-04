@@ -4,20 +4,22 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-
-const NAV_LINKS = [
-  { href: "/", label: "ホーム" },
-  { href: "/gallery", label: "ギャラリー" },
-  { href: "/artdrop", label: "アートドロップ" },
-  { href: "/pricing", label: "料金" },
-  { href: "/news", label: "お知らせ" },
-  { href: "/access", label: "アクセス" },
-];
+import { useLanguage } from "@/i18n";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { locale, setLocale, t } = useLanguage();
+
+  const NAV_LINKS = [
+    { href: "/", label: t.nav.home },
+    { href: "/gallery", label: t.nav.gallery },
+    { href: "/artdrop", label: t.nav.artdrop },
+    { href: "/pricing", label: t.nav.pricing },
+    { href: "/news", label: t.nav.news },
+    { href: "/access", label: t.nav.access },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,15 +71,23 @@ export default function Header() {
           ))}
         </nav>
 
+        <button
+          className="header-lang-toggle"
+          onClick={() => setLocale(locale === "ja" ? "en" : "ja")}
+          aria-label={locale === "ja" ? "Switch to English" : "日本語に切り替え"}
+        >
+          {locale === "ja" ? "English" : "日本語"}
+        </button>
+
         <Link href="/booking" className="header-cta">
           <i className="ri-calendar-check-line"></i>
-          ご予約
+          {t.nav.booking}
         </Link>
 
         <button
           className={`header-menu-btn ${isMenuOpen ? "header-menu-btn--open" : ""}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="メニューを開く"
+          aria-label={t.openMenuAriaLabel}
         >
           <span></span>
           <span></span>
@@ -98,9 +108,16 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <button
+            className="header-lang-toggle"
+            onClick={() => setLocale(locale === "ja" ? "en" : "ja")}
+            aria-label={locale === "ja" ? "Switch to English" : "日本語に切り替え"}
+          >
+            {locale === "ja" ? "English" : "日本語"}
+          </button>
           <Link href="/booking" className="header-drawer-cta">
             <i className="ri-calendar-check-line"></i>
-            ご予約はこちら
+            {t.nav.bookingDrawer}
           </Link>
         </nav>
       </div>

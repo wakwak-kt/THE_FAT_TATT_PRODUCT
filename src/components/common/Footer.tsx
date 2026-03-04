@@ -1,6 +1,26 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/i18n";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const menuLinks = [
+    { href: "/", label: t.nav.home },
+    { href: "/gallery", label: t.nav.gallery },
+    { href: "/artdrop", label: t.nav.artdrop },
+    { href: "/pricing", label: t.nav.pricing },
+    { href: "/news", label: t.nav.news },
+  ];
+
+  const contactLinks = [
+    { href: "/booking", label: t.nav.booking },
+    { href: "/access", label: t.nav.access },
+  ];
+
+  const taglineLines = t.footer.tagline.split("\n");
+
   return (
     <footer id="contact" className="footer">
       <div className="footer-bg">
@@ -12,11 +32,12 @@ export default function Footer() {
         <div className="footer-content">
           <div className="footer-brand">
             <p className="footer-tagline">
-              おめでとうございます。
-              <br />
-              ここまできたあなたは少なからず密かな衝動を隠し持ってます。
-              <br />
-              あとはユニフォームをいれるだけ。
+              {taglineLines.map((line, i) => (
+                <span key={i}>
+                  {line}
+                  {i < taglineLines.length - 1 && <br />}
+                </span>
+              ))}
             </p>
             <div className="footer-social">
               <a
@@ -37,30 +58,22 @@ export default function Footer() {
             <div className="footer-links-column">
               <h3>MENU</h3>
               <ul>
-                <li>
-                  <Link href="/">ホーム</Link>
-                </li>
-                <li>
-                  <Link href="/gallery">ギャラリー</Link>
-                </li>
-                <li>
-                  <Link href="/artdrop">アートドロップ</Link>
-                </li>
-                <li>
-                  <Link href="/pricing">料金</Link>
-                </li>
-                <li>
-                  <Link href="/news">お知らせ</Link>
-                </li>
+                {menuLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="footer-links-column">
               <h3>CONTACT</h3>
               <ul>
-                <li>
-                  <Link href="/booking">ご予約</Link>
-                </li>
+                {contactLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
                 <li>
                   <a
                     href="https://instagram.com/the_fat_tatt"
@@ -69,9 +82,6 @@ export default function Footer() {
                   >
                     Instagram DM
                   </a>
-                </li>
-                <li>
-                  <Link href="/access">アクセス</Link>
                 </li>
               </ul>
             </div>

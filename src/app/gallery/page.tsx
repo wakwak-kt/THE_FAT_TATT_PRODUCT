@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getGalleryArtworks } from "@/lib/microcms";
 import type { Gallery } from "@/lib/types";
 import GallerySection from "@/components/sections/GallerySection";
+import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Gallery | THE FAT TATT - Tattoo Portfolio | ギャラリー",
@@ -26,12 +26,7 @@ export default async function GalleryPage() {
 
   return (
     <main className="page-content">
-      <div className="page-hero">
-        <div className="container">
-          <h1 className="page-hero-title">ギャラリー</h1>
-          <p className="page-hero-subtitle">これまでの作品をご覧ください</p>
-        </div>
-      </div>
+      <PageHero pageKey="gallery" />
       <GallerySection artworks={artworks} />
     </main>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProcessSection from "@/components/sections/ProcessSection";
+import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Tattoo Process | THE FAT TATT - How It Works | 施術の流れ",
@@ -13,14 +14,7 @@ export const metadata: Metadata = {
 export default function ProcessPage() {
   return (
     <main className="page-content">
-      <div className="page-hero">
-        <div className="container">
-          <h1 className="page-hero-title">施術の流れ</h1>
-          <p className="page-hero-subtitle">
-            デザインパターンと施術プロセスのご案内
-          </p>
-        </div>
-      </div>
+      <PageHero pageKey="process_page" />
       <ProcessSection />
     </main>
   );

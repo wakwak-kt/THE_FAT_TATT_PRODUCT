@@ -1,28 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import ScrollFadeUp from "@/components/ui/ScrollFadeUp";
+import { formatDate } from "@/lib/formatDate";
+import { useLanguage } from "@/i18n";
 import type { Announcement } from "@/lib/types";
-
-function formatDate(dateStr: string) {
-  const parts = dateStr.split("-");
-  if (parts.length < 3) return "";
-  const year = parts[0];
-  const month = parseInt(parts[1], 10);
-  const day = parseInt(parts[2], 10);
-  return `${year}.${month}.${day}`;
-}
 
 export default function RecentNewsSection({
   announcements,
 }: {
   announcements: Announcement[];
 }) {
+  const { locale, t } = useLanguage();
+
   return (
     <section className="recent-news-section">
       <div className="container">
         <ScrollFadeUp>
           <div className="section-header">
-            <h2 className="section-title">最近のお知らせ</h2>
+            <h2 className="section-title">{t.recentNews.title}</h2>
           </div>
           {announcements.length > 0 ? (
             <div className="news-list">
@@ -43,9 +40,9 @@ export default function RecentNewsSection({
                   </div>
                   <div className="news-body">
                     <p className="news-card-date">
-                      {formatDate(item.publishDate)}
+                      {formatDate(item.publishDate, locale)}
                     </p>
-                    <h3 className="news-title">{item.title}</h3>
+                    <h3 className="news-title">{locale === "en" && item.title_en ? item.title_en : item.title}</h3>
                   </div>
                 </Link>
               ))}
@@ -53,12 +50,12 @@ export default function RecentNewsSection({
           ) : (
             <div className="news-empty">
               <i className="ri-newspaper-line"></i>
-              <p>現在お知らせはありません</p>
+              <p>{t.recentNews.empty}</p>
             </div>
           )}
           <div className="recent-news-cta">
             <Link href="/news" className="recent-news-cta-btn">
-              お知らせをチェック
+              {t.recentNews.cta}
               <i className="ri-arrow-right-line"></i>
             </Link>
           </div>

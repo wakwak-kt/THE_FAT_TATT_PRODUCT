@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getAnnouncements } from "@/lib/microcms";
 import type { Announcement } from "@/lib/types";
 import NewsSection from "@/components/sections/NewsSection";
+import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "News & Updates | THE FAT TATT | お知らせ",
@@ -25,12 +26,7 @@ export default async function NewsPage() {
 
   return (
     <main className="page-content">
-      <div className="page-hero">
-        <div className="container">
-          <h1 className="page-hero-title">お知らせ</h1>
-          <p className="page-hero-subtitle">最新のニュースとお知らせ</p>
-        </div>
-      </div>
+      <PageHero pageKey="news" />
       <NewsSection announcements={announcements} />
     </main>
   );
